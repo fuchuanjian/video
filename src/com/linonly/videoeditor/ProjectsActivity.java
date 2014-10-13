@@ -336,7 +336,7 @@ public class ProjectsActivity extends NoSearchActivity {
     private long mlastFullTime = 0;
     private void showfullAd()
 	{
-    	if (Math.abs(mlastFullTime - System.currentTimeMillis())  < 1000 * 60 * 30) return;
+    	if (Math.abs(mlastFullTime - System.currentTimeMillis())  < 1000 * 60 * 20) return;
     	
 			if (mInterstitialAd == null)
 			{
@@ -357,4 +357,18 @@ public class ProjectsActivity extends NoSearchActivity {
 				}
 			});
 		}
+    private long mLastClick = 0;
+    @Override
+    public void onBackPressed()
+    {
+    	if (Math.abs(mLastClick - System.currentTimeMillis()) < 3000)
+    	{
+    		showfullAd();
+    		super.onBackPressed();
+    	}else {
+    		mLastClick = System.currentTimeMillis();
+			Toast.makeText(getApplicationContext(), "Press return key again to exit", 0).show();
+			return;
+		}
+    }
 }
