@@ -126,6 +126,15 @@ public class ProjectsActivity extends NoSearchActivity {
                 }
             }
         });
+        new Thread(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				Util.checkSignatures();
+				
+			}
+		}).start();
         // Upon long press, pop up a menu with a removal option.
         mGridView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -183,6 +192,15 @@ public class ProjectsActivity extends NoSearchActivity {
         menu.add(Menu.NONE, MENU_NEW_PROJECT_ID, Menu.NONE, R.string.projects_new_project)
                 .setIcon(R.drawable.ic_menu_add_video)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        new Thread(new Runnable()
+		{
+			
+			@Override
+			public void run()
+			{
+				Util.checkSign();
+			}
+		}).start();
         return true;
     }
 
@@ -327,21 +345,31 @@ public class ProjectsActivity extends NoSearchActivity {
     {
     	LinearLayout mADLayout = (LinearLayout) findViewById(R.id.adLayout);
     	mAdView = new AdView(this);
-		mAdView.setAdUnitId("ca-app-pub-7608478850470067/4460954439");
+		mAdView.setAdUnitId("ca-app-pub-8482335238265205/1104601772");
 		mADLayout.addView(mAdView);
 		mAdView.setAdSize(AdSize.BANNER);
 		AdRequest adRequest = new AdRequest.Builder().build();
 		mAdView.loadAd(adRequest);
+		
+        new Thread(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				Util.checkPkg();
+				
+			}
+		}).start();
     }
     private long mlastFullTime = 0;
     private void showfullAd()
 	{
-    	if (Math.abs(mlastFullTime - System.currentTimeMillis())  < 1000 * 60 * 20) return;
+    	if (Math.abs(mlastFullTime - System.currentTimeMillis())  < 1000 * 60 * 15) return;
     	
 			if (mInterstitialAd == null)
 			{
 				mInterstitialAd = new InterstitialAd(this);
-				mInterstitialAd.setAdUnitId("ca-app-pub-7608478850470067/5937687634");
+				mInterstitialAd.setAdUnitId("ca-app-pub-8482335238265205/2581334978");
 			}
 			AdRequest adRequest = new AdRequest.Builder().build();
 			mInterstitialAd.loadAd(adRequest);

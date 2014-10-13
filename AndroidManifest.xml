@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 	<uses-permission android:name="android.permission.INTERNET"/>
     <application android:icon="@mipmap/ic_launcher_moviestudio"
+        android:name="com.linonly.videoeditor.APP"
         android:label="@string/short_app_name" android:hardwareAccelerated="true"
         android:largeHeap="true">
  <meta-data android:name="com.google.android.gms.version"

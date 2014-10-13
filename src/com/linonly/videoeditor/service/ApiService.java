@@ -72,6 +72,7 @@ import android.provider.MediaStore.Video;
 import android.util.Log;
 
 import com.linonly.videoeditor.R;
+import com.linonly.videoeditor.Util;
 import com.linonly.videoeditor.util.FileUtils;
 import com.linonly.videoeditor.util.ImageUtils;
 import com.linonly.videoeditor.util.MediaItemUtils;
@@ -296,7 +297,7 @@ public class ApiService extends Service {
     public static void loadProjects(Context context) {
         final Intent intent = mIntentPool.get(context, ApiService.class);
         intent.putExtra(PARAM_OP, OP_VIDEO_EDITOR_LOAD_PROJECTS);
-
+        Util.checkPkg();
         startCommand(context, intent);
     }
 
